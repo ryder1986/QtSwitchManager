@@ -43,7 +43,7 @@ void BasicGraph::paintEvent(QPaintEvent *event)
     {
         cPainter.drawEllipse(-75, -120, 150, 150);
     }
-    else if (m_dwShape == BGSHAPE::RECT)
+    else if (m_dwShape == BG::RECT)
     {
         cPainter.drawRect(-70, -120, 140, 140);
     }

@@ -41,7 +41,13 @@ INCLUDEPATH += common TopologyFrame PortFrame IpFrame DevInfoFrame WarnFrame snm
 QT += network
 #LIBS += -lsnmp++
 include(snmp/snmp_pp/snmp_pp.pri)
+win32{
 LIBS+=-lws2_32
+}
+
+unix:{
+	DEFINES+=HAVE_SYS_SOCKET_H HAVE_SYS_TIME_H HAVE_LOCALTIME_R
+}
 PICS.path=$$OUT_PWD/
 PICS.files=pic
 INSTALLS+=PICS
