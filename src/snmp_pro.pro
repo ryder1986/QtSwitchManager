@@ -25,7 +25,7 @@ SOURCES += main.cpp \
     TopologyFrame/NetworkGraph.cpp \
     TopologyFrame/portconfig.cpp
 
-HEADERS  += widget.h \
+HEADERS  +=  \
     common/Widget.h \
     DevInfoFrame/DevInfoFrame.h \
     IpFrame/IpFrame.h \
@@ -34,7 +34,6 @@ HEADERS  += widget.h \
     TopologyFrame/TopologyFrame.h \
     WarnFrame/WarnFrame.h \
     MainWidget.h \
-    TopologyFrame/basicinfo.h \
     common/basicinfo.h \
     TopologyFrame/NetworkGraph.h \
     TopologyFrame/portconfig.h
