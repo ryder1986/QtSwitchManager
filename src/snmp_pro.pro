@@ -50,4 +50,6 @@ unix:{
 }
 PICS.path=$$OUT_PWD/
 PICS.files=pic
-INSTALLS+=PICS
+CONFIGS.path=$$OUT_PWD/
+CONFIGS.files=../bin/config.ini
+INSTALLS+=PICS CONFIGS
