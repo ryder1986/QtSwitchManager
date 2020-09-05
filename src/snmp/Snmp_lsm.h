@@ -15,10 +15,11 @@ using namespace Snmp_pp;
 
 class Snmp_Lsm : public QObject
 {
-  //  Q_OBJECT
+    Q_OBJECT
 
 public:
-    Snmp_Lsm(int dwRetries = 1, int dwTimeout = 3, u_short wAgentPort=161, const char *pcCommunity = "public", u_short wManagerPort=162);
+    Snmp_Lsm(QObject *parent = 0,int dwRetries = 1, int dwTimeout = 3,
+         u_short wAgentPort=161, const char *pcCommunity = "public", u_short wManagerPort=162);
     int SnmpGet(QString &strRet, char *ip, char *oid_array);
     int SnmpWalk(QMap<QString, QString> &map_SnmpWalkRet, char *ip, char *oid);
     int StartTrap(int wManagerPort);
@@ -26,9 +27,9 @@ public:
     void EmitWarnTextSignal(QString strOid, QString strMsg);
     ~Snmp_Lsm();
 signals:
-   // void signal_SendPortWarn();
-   // void signal_SendWarnText(QString strOid, QString strMsg);
-private slots:
+    void signal_SendPortWarn();
+    void signal_SendWarnText(QString strOid, QString strMsg);
+protected slots:
 private:
     u_short m_wAgentPort;
     QString m_strCommunity;

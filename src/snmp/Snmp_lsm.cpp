@@ -1,7 +1,8 @@
 #include "Snmp_lsm.h"
 #include "PortFrame.h"
 
-Snmp_Lsm::Snmp_Lsm(int dwRetries, int dwTimeout, u_short wAgentPort, const char *pcCommunity, u_short wManagerPort)
+Snmp_Lsm::Snmp_Lsm(QObject *parent,int dwRetries, int dwTimeout, u_short wAgentPort,
+                   const char *pcCommunity, u_short wManagerPort):QObject(parent)
 {
     m_wAgentPort = wAgentPort;
     m_strCommunity = pcCommunity;
@@ -220,12 +221,12 @@ void callback(int reason, Snmp *snmp, Pdu &pdu, SnmpTarget &target, void *cd)
 
 void Snmp_Lsm::EmitPortWarnSignal()
 {
-//    emit signal_SendPortWarn();
+    emit signal_SendPortWarn();
 }
 
 void Snmp_Lsm::EmitWarnTextSignal(QString strOid, QString strMsg)
 {
-  //  emit signal_SendWarnText(strOid, strMsg);
+    emit signal_SendWarnText(strOid, strMsg);
 }
 
 int Snmp_Lsm::StartTrap(int dwManagerPort)

@@ -25,7 +25,7 @@ SOURCES += main.cpp \
     TopologyFrame/NetworkGraph.cpp \
     TopologyFrame/portconfig.cpp
 
-HEADERS  +=  \
+HEADERS  += snmp/Snmp_lsm.h \
     common/Widget.h \
     DevInfoFrame/DevInfoFrame.h \
     IpFrame/IpFrame.h \

@@ -13,8 +13,8 @@ MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
     m_ptPortFrame = new PortFrame(&m_tSnmp);
     gptSnmp_Lsm = &m_tSnmp;
     m_ptTopologyFrame = new TopologyFrame();
-    // connect(gptSnmp_Lsm, SIGNAL(signal_SendPortWarn()), m_ptTopologyFrame, SLOT(slot_PortShowWarn()));
-    //connect(gptSnmp_Lsm, SIGNAL(signal_SendWarnText(QString, QString)), &m_WarnFrame, SLOT(slot_ReciveWarnText(QString, QString)));
+    connect(gptSnmp_Lsm, SIGNAL(signal_SendPortWarn()), m_ptTopologyFrame, SLOT(slot_PortShowWarn()));
+    connect(gptSnmp_Lsm, SIGNAL(signal_SendWarnText(QString, QString)), &m_WarnFrame, SLOT(slot_ReciveWarnText(QString, QString)));
     connect(&m_WarnFrame, SIGNAL(signal_SendPortWarn()), m_ptTopologyFrame, SLOT(slot_PortShowWarn()));
     m_mainlayout = new QHBoxLayout(this);
     m_rightlayout = new QVBoxLayout();
